@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitLife - Blog Fitness & Bien-Être</title>
+    <!-- Meta tags SEO optimisés pour le référencement -->
+    <meta
+      name="description"
+      content="Conseils experts en fitness, nutrition et bien-être. Transformez votre santé avec nos programmes personnalisés."
+    />
+    <meta
+      name="keywords"
+      content="fitness, bien-être, nutrition, perdre poids, exercices maison, santé"
+    />
+    <meta name="author" content="FitLife" />
+    <!-- Favicon pour la reconnaissance de la marque -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome pour les icônes -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Police Google pour une typographie moderne -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Variables CSS pour une gestion facile des couleurs et tailles */
+      :root {
+        --primary: #4a90e2;
+        --secondary: #50e3c2;
+        --accent: #ff6b6b;
+        --dark-bg: #121826;
+        --dark-card: #1a2236;
+        --dark-text: #e0e0e0;
+        --light-bg: #f8f9fa;
+        --light-card: #ffffff;
+        --light-text: #333333;
+        --header-height: 70px;
+        --transition: all 0.3s ease;
+      }
+
+      /* Reset CSS et styles de base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: var(--dark-text);
+        line-height: 1.6;
+        transition: var(--transition);
+      }
+
+      /* Mode clair */
+      body.light-mode {
+        background-color: var(--light-bg);
+        color: var(--light-text);
+      }
+
+      /* En-tête avec navigation */
+      header {
+        background-color: rgba(26, 34, 54, 0.95);
+        height: var(--header-height);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      body.light-mode header {
+        background-color: rgba(255, 255, 255, 0.95);
+      }
+
+      /* Contenu de l'en-tête */
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Logo */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+
+      /* Barre de recherche */
+      .search-bar {
+        position: relative;
+        width: 300px;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 10px 15px 10px 40px;
+        border-radius: 25px;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--dark-text);
+        transition: var(--transition);
+      }
+
+      body.light-mode .search-input {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: var(--light-text);
+      }
+
+      .search-input:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--primary);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--dark-text);
+      }
+
+      body.light-mode .search-icon {
+        color: var(--light-text);
+      }
+
+      /* Filtres de catégorie */
+      .filters {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+        margin-top: var(--header-height);
+        background-color: var(--dark-card);
+        flex-wrap: wrap;
+      }
+
+      body.light-mode .filters {
+        background-color: var(--light-card);
+      }
+
+      .filters button {
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: none;
+        background-color: var(--dark-card);
+        color: var(--dark-text);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      body.light-mode .filters button {
+        background-color: var(--light-card);
+        color: var(--light-text);
+      }
+
+      .filters button:hover,
+      .filters button.active {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      /* Conteneur principal des articles */
+      .blog-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Grille des articles */
+      .blog-posts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      /* Carte d'article individuelle */
+      .blog-post {
+        background-color: var(--dark-card);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      body.light-mode .blog-post {
+        background-color: var(--light-card);
+      }
+
+      .blog-post:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Image de l'article */
+      .post-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      /* Contenu de l'article */
+      .post-content {
+        padding: 20px;
+      }
+
+      .post-category {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: var(--accent);
+        color: white;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+      }
+
+      .post-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--dark-text);
+      }
+
+      body.light-mode .post-title {
+        color: var(--light-text);
+      }
+
+      .post-excerpt {
+        color: var(--dark-text);
+        opacity: 0.8;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      body.light-mode .post-excerpt {
+        color: var(--light-text);
+      }
+
+      .read-more {
+        display: inline-flex;
+        align-items: center;
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: 500;
+        gap: 5px;
+        transition: var(--transition);
+      }
+
+      .read-more:hover {
+        color: var(--primary);
+        gap: 10px;
+      }
+
+      /* Pagination */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .pagination button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background-color: var(--dark-card);
+        color: var(--dark-text);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      body.light-mode .pagination button {
+        background-color: var(--light-card);
+        color: var(--light-text);
+      }
+
+      .pagination button.active,
+      .pagination button:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      /* Pied de page */
+      footer {
+        background-color: var(--dark-card);
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      body.light-mode footer {
+        background-color: var(--light-card);
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          padding: 10px;
+          gap: 10px;
+        }
+
+        .search-bar {
+          width: 100%;
+        }
+
+        .blog-posts {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- En-tête du site avec barre de recherche -->
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-heartbeat"></i>
+          <span>FitLife</span>
+        </div>
+        <div class="search-bar">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Rechercher des articles..."
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- Filtres par catégorie -->
+    <section class="filters">
+      <button class="active" data-filter="all">Tous les articles</button>
+      <button data-filter="fitness">Fitness</button>
+      <button data-filter="nutrition">Nutrition</button>
+      <button data-filter="bien-etre">Bien-Être</button>
+      <button data-filter="perte-poids">Perte de poids</button>
+    </section>
+
+    <!-- Conteneur principal des articles -->
+    <main class="blog-container">
+      <div class="blog-posts" id="blogPosts">
+        <!-- Les articles seront générés dynamiquement par JavaScript -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+      <div class="footer-content">
+        <p>© 2023 FitLife. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Données des articles de blog (20 articles comme demandé)
+      const blogPosts = [
+        {
+          id: 1,
+          title: "Comment Perdre du Poids Facilement à la Maison",
+          category: "perte-poids",
+          excerpt:
+            "Découvrez des méthodes efficaces pour perdre du poids sans équipement spécial avec notre guide complet.",
+          image:
+            "https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          seoTitle: "Perdre du poids facilement à la maison - FitLife",
+        },
+        {
+          id: 2,
+          title: "Fitness et Bien-Être : Le Guide Complet",
+          category: "fitness",
+          excerpt:
+            "Tout ce que vous devez savoir pour intégrer le fitness dans votre routine quotidienne et améliorer votre bien-être.",
+          image:
+            "https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          seoTitle: "Guide complet fitness et bien-être - FitLife",
+        },
+        // Ajouter les 18 autres articles ici...
+        {
+          id: 20,
+          title: "Les Meilleurs Exercices pour un Ventre Plat",
+          category: "fitness",
+          excerpt:
+            "Découvrez les exercices les plus efficaces pour obtenir un ventre plat et tonifié.",
+          image:
+            "https://images.unsplash.com/photo-1535914254981-b5012eebbd15?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          seoTitle: "Exercices pour un ventre plat - FitLife",
+        },
+      ];
+
+      // Fonction pour afficher les articles
+      function displayPosts(posts = blogPosts) {
+        const postsContainer = document.getElementById("blogPosts");
+        postsContainer.innerHTML = "";
+
+        posts.forEach((post) => {
+          const postElement = document.createElement("article");
+          postElement.className = "blog-post";
+          postElement.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" class="post-image">
+                    <div class="post-content">
+                        <span class="post-category">${post.category}</span>
+                        <h3 class="post-title">${post.title}</h3>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                        <a href="#" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+          postsContainer.appendChild(postElement);
+        });
+      }
+
+      // Fonction pour filtrer les articles par catégorie
+      function filterPosts(category) {
+        if (category === "all") {
+          displayPosts();
+          return;
+        }
+
+        const filteredPosts = blogPosts.filter(
+          (post) => post.category === category,
+        );
+        displayPosts(filteredPosts);
+      }
+
+      // Gestion des clics sur les boutons de filtre
+      document.querySelectorAll(".filters button").forEach((button) => {
+        button.addEventListener("click", () => {
+          // Retire la classe active de tous les boutons
+          document.querySelectorAll(".filters button").forEach((btn) => {
+            btn.classList.remove("active");
+          });
+
+          // Ajoute la classe active au bouton cliqué
+          button.classList.add("active");
+
+          // Filtre les articles
+          const category = button.dataset.filter;
+          filterPosts(category);
+        });
+      });
+
+      // Fonction de recherche
+      document.getElementById("searchInput").addEventListener("input", (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+
+        if (searchTerm.length > 2) {
+          const results = blogPosts.filter(
+            (post) =>
+              post.title.toLowerCase().includes(searchTerm) ||
+              post.excerpt.toLowerCase().includes(searchTerm) ||
+              post.category.toLowerCase().includes(searchTerm),
+          );
+          displayPosts(results);
+        } else {
+          displayPosts();
+        }
+      });
+
+      // Gestion de la pagination
+      document.querySelectorAll(".pagination button").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll(".pagination button").forEach((btn) => {
+            btn.classList.remove("active");
+          });
+          button.classList.add("active");
+          // Ici, vous pourriez charger plus d'articles pour la pagination
+        });
+      });
+
+      // Afficher tous les articles au chargement de la page
+      window.addEventListener("DOMContentLoaded", () => {
+        displayPosts();
+
+        // Optimisation SEO: Modifier le titre de la page pour le premier article
+        document.title = blogPosts[0].seoTitle;
+
+        // Ajouter une meta description dynamique pour le SEO
+        const metaDesc = document.createElement("meta");
+        metaDesc.name = "description";
+        metaDesc.content = blogPosts[0].excerpt;
+        document.head.appendChild(metaDesc);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,271 @@
+/* Import Google Font */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding-top: 70px; /* espace pour navbar fixe */
+  background-color: #f5f9ff; /* bleu ciel clair */
+  color: #212529;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+/* Header aux couleurs du Tchad */
+.bg-tchad {
+  background: linear-gradient(to right, #002664, #fcd116, #c60c30);
+}
+
+.navbar-brand span {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 500;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fcd116 !important;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url("images/hero-bg.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  font-size: 1.1rem;
+  padding: 12px 30px;
+  border-radius: 30px;
+}
+
+/* Section titres */
+section h2 {
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #002664;
+}
+
+/* Cartes membres */
+.card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Badges spécialités */
+.badge {
+  font-size: 1rem;
+  padding: 12px 25px;
+  border-radius: 30px;
+  transition: transform 0.3s;
+}
+
+.badge:hover {
+  transform: scale(1.1);
+}
+
+/* Section En savoir plus */
+#infos h4 {
+  font-weight: 600;
+  color: #002664;
+}
+
+#infos .btn {
+  margin-top: 10px;
+  border-radius: 25px;
+  padding: 10px 20px;
+}
+
+/* Section Tarifs */
+#tarifs {
+  background-color: #002664;
+}
+
+#tarifs h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#tarifs p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #e6f0ff; /* bleu ciel clair */
+  color: #002664;
+}
+
+.footer h5 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer a {
+  color: #002664;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+/* Mode sombre */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .navbar {
+  background: #1f1f1f !important;
+}
+
+} .dark-mode .hero { background: url('images/hero-dark.jpg') center/cover no-repeat; } .dark-mode h1, .dark-mode h2, .dark-mode h4 { color: #fcd116; } .dark-mode .card { background-color: #1f1f1f; color: #e0e0e0; } .dark-mode .footer { background-color: #1f1f1f; color: #e0e0e0; } .dark-mode a { color: #fcd116; } .dark-mode .btn { border: 1px solid #fcd116; color: #fcd116; }
+
+
+/* --- Général --- */
+html, body {
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* --- Navbar --- */
+.navbar {
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* --- Boutons --- */
+.btn {
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+/* --- Cartes membres --- */
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-body .btn {
+  margin-top: 10px;
+}
+
+/* --- Footer enrichi --- */
+.footer {
+  background: linear-gradient(to right, #f5f9ff, #dceeff);
+}
+
+.footer h5 {
+  font-size: 1.1rem;
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer .social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.footer .social-icons a:hover {
+  transform: scale(1.2);
+  color: #c60c30;
+}
+
+/* --- Responsivité --- */
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .navbar-nav {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    height: 180px;
+  }
+  .badge {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+}
